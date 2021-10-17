@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+
+body {
+  @apply font-rubic min-h-screen;
+  background: #e5e5e5;
+}
+
+.auth {
+  width: 500px;
+}
+
+.md-input-main {
+  @apply text-base w-full font-normal;
+}
+
+.md-input-box {
+  @apply relative;
+  position: relative;
+}
+
+.md-input {
+  @apply w-full py-2;
+  width: 100%;
+  outline: none;
+}
+
+.md-label {
+  @apply absolute pointer-events-none block;
+  transform-origin: top left;
+  transform: translate(0, -40px) scale(1);
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+    transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+}
+
+.md-label-focus {
+  @apply text-gray-500;
+  transform: translate(0, -50px) scale(0.75);
+  transform-origin: top left;
+}
+
+.md-input-underline {
+  @apply border-b;
+}
+
+.md-input-underline:after {
+  @apply absolute left-0 right-0 pointer-events-none;
+  bottom: -0.05rem;
+  content: "";
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transform: scaleX(0);
+  border-bottom: 2px solid #805ad5;
+}
+
+.md-input:focus ~ .md-input-underline:after {
+  @apply text-gray-500;
+  transform: scaleX(1);
+}
+
+.md-input:focus + .md-label,
+.md-input:not(:placeholder-shown) + .md-label {
+  @apply md-label-focus text-gray-500 text-sm;
+  transform: translate(0, -50px) scale(0.75);
+  transform-origin: top left;
+}
+
+.listChat {
+  height: calc(100vh - 200px);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0;
+}
+/* track */
+::-webkit-scrollbar-track {
+  background: #f7f7f7;
+}
+/* handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-transparent;
+}
+/* handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-white;
+}
+
+.message-body {
+  height: calc(100vh - 192px);
+}
+
+.tippy-content .bg-white.border-0.block.z-50.font-normal.leading-normal.text-sm.max-w-xs.text-left.no-underline.break-words.rounded-lg.shadow-xl.undefined {
+  @apply bg-indigo-400 text-white;
+}
+
+.text-gray-700.font-normal.px-4.pb-4.undefined {
+  @apply text-white flex flex-col py-2 items-start justify-center;
+}
+
+.text-gray-700.font-normal.px-4.pb-4.undefined a {
+  @apply py-2 flex gap-2;
+}
